@@ -1,0 +1,871 @@
+/* ===========================
+   GOOGLE FONT & RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#0b0f0d;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ===========================
+   NAVIGATION BAR
+=========================== */
+
+.navbar{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:25px 80px;
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    background:rgba(11,15,13,.90);
+
+    backdrop-filter:blur(10px);
+
+    z-index:1000;
+
+}
+
+.logo{
+
+    font-size:32px;
+
+    font-weight:700;
+
+    color:white;
+
+    letter-spacing:1px;
+
+}
+
+.logo span{
+
+    color:#7bd85a;
+
+}
+
+.nav-links{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:40px;
+
+}
+
+.nav-links a{
+
+    text-decoration:none;
+
+    color:white;
+
+    font-size:17px;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:#7bd85a;
+
+}
+
+/* ===========================
+   HERO SECTION
+=========================== */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:140px 80px 80px;
+
+}
+
+.hero-left{
+
+    width:50%;
+
+}
+
+.hero-left h3{
+
+    color:#7bd85a;
+
+    font-size:22px;
+
+    margin-bottom:15px;
+
+    text-transform:uppercase;
+
+}
+
+.hero-left h1{
+
+    font-size:72px;
+
+    margin-bottom:25px;
+
+    line-height:1.1;
+
+}
+
+.hero-left h1 span{
+
+    color:#7bd85a;
+
+}
+
+.hero-left p{
+
+    font-size:20px;
+
+    line-height:38px;
+
+    color:#cfcfcf;
+
+    margin-bottom:40px;
+
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.buttons{
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+.btn{
+
+    padding:16px 34px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.green{
+
+    background:#7bd85a;
+
+    color:black;
+
+}
+
+.green:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 0 25px rgba(123,216,90,.45);
+
+}
+
+.outline{
+
+    border:2px solid #7bd85a;
+
+    color:#7bd85a;
+
+}
+
+.outline:hover{
+
+    background:#7bd85a;
+
+    color:black;
+
+}
+
+/* ===========================
+   PHONE IMAGE
+=========================== */
+
+.hero-right{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+position:relative;
+
+overflow:hidden;
+
+flex:1;
+
+min-height:700px;
+
+}
+
+.hero-right img{
+
+width:650px;
+
+max-width:100%;
+
+position:relative;
+
+z-index:5;
+
+mix-blend-mode:screen;
+
+filter:
+brightness(1.05)
+contrast(1.08)
+drop-shadow(0 0 40px rgba(115,255,0,.45))
+drop-shadow(0 0 80px rgba(115,255,0,.25));
+
+animation:phoneAnimation 6s ease-in-out infinite;
+
+transform-style:preserve-3d;
+
+}
+
+.hero-right img:hover{
+
+    transform:rotate(-8deg) scale(1.05);
+
+}
+/* ==========================
+   GOOGLE FONT & RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0b0f0d;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ==========================
+   NAVIGATION BAR
+========================== */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,.75);
+    backdrop-filter:blur(12px);
+    z-index:999;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:700;
+    color:white;
+}
+
+.logo span{
+    color:#69d84f;
+}
+
+.nav-links{
+    display:flex;
+    gap:35px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+    font-weight:500;
+}
+
+.nav-links a:hover{
+    color:#69d84f;
+}
+
+/* ==========================
+   HERO SECTION
+========================== */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:120px 70px;
+}
+
+.hero-left{
+    width:50%;
+}
+
+.hero-left h3{
+    color:#69d84f;
+    font-size:22px;
+    margin-bottom:15px;
+}
+
+.hero-left h1{
+    font-size:72px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero-left h1 span{
+    color:#69d84f;
+}
+
+.hero-left p{
+    color:#d9d9d9;
+    font-size:18px;
+    line-height:34px;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    gap:20px;
+}
+
+.btn{
+    padding:16px 32px;
+    border-radius:10px;
+    text-decoration:none;
+    transition:.3s;
+    font-weight:600;
+}
+
+.green{
+    background:#69d84f;
+    color:black;
+}
+
+.green:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 20px #69d84f;
+}
+
+.outline{
+    border:2px solid #69d84f;
+    color:#69d84f;
+}
+
+.outline:hover{
+    background:#69d84f;
+    color:black;
+}
+
+/* ==========================
+   PHONE IMAGE
+========================== */
+
+.hero-right{
+    width:45%;
+    display:flex;
+    justify-content:center;
+}
+
+.hero-right img{
+    width:420px;
+    transition:.5s;
+    filter:drop-shadow(0 25px 40px rgba(0,0,0,.8));
+}
+
+.hero-right img:hover{
+    transform:rotate(-8deg) scale(1.05);
+}
+
+/* ==========================
+   QUICK INFO CARDS
+========================== */
+
+.quick-info{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+    padding:20px 70px 80px;
+}
+
+.card{
+    background:#131917;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    text-align:center;
+    padding:35px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    border-color:#69d84f;
+    box-shadow:0 0 25px rgba(105,216,79,.35);
+}
+
+.card h2{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.card h3{
+    margin-bottom:10px;
+    color:#69d84f;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer{
+    margin-top:80px;
+    padding:40px;
+    background:#101412;
+    text-align:center;
+}
+
+footer h3{
+    color:#69d84f;
+    margin-bottom:10px;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:900px){
+
+.navbar{
+    flex-direction:column;
+    gap:15px;
+}
+
+.nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.hero{
+    flex-direction:column;
+    text-align:center;
+    padding-top:170px;
+}
+
+.hero-left{
+    width:100%;
+}
+
+.hero-right{
+    width:100%;
+    margin-top:50px;
+}
+
+.hero-right img{
+    width:280px;
+}
+
+.hero-left h1{
+    font-size:48px;
+}
+
+.quick-info{
+    grid-template-columns:1fr;
+}
+
+.buttons{
+    justify-content:center;
+}
+
+}
+
+
+/* ===========================
+REVOLUTION SECTION
+=========================== */
+
+.revolution{
+
+padding:120px 80px;
+
+background:#111815;
+
+}
+
+.section-title{
+
+text-align:center;
+
+margin-bottom:70px;
+
+}
+
+.section-title h2{
+
+font-size:55px;
+
+margin-bottom:20px;
+
+color:#7bd85a;
+
+}
+
+.section-title p{
+
+max-width:900px;
+
+margin:auto;
+
+line-height:35px;
+
+font-size:19px;
+
+color:#cfcfcf;
+
+}
+
+.feature-grid{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:35px;
+
+margin-top:70px;
+
+}
+
+.feature-card{
+
+background:#181f1c;
+
+padding:35px;
+
+border-radius:20px;
+
+transition:.4s;
+
+border:1px solid rgba(255,255,255,.06);
+
+}
+
+.feature-card:hover{
+
+transform:translateY(-12px);
+
+box-shadow:0 0 30px rgba(123,216,90,.25);
+
+border-color:#7bd85a;
+
+}
+
+.feature-card h1{
+
+font-size:55px;
+
+margin-bottom:20px;
+
+}
+
+.feature-card h3{
+
+font-size:25px;
+
+margin-bottom:15px;
+
+color:#7bd85a;
+
+}
+
+.feature-card p{
+
+line-height:30px;
+
+color:#d7d7d7;
+
+}
+
+/*==========================
+SPECIFICATIONS
+===========================*/
+
+.specifications{
+
+padding:120px 80px;
+
+background:#0b0f0d;
+
+}
+
+.spec-grid{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:30px;
+
+margin-top:70px;
+
+}
+
+.spec-card{
+
+background:#171d1a;
+
+padding:35px;
+
+border-radius:18px;
+
+text-align:center;
+
+transition:.4s;
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+.spec-card:hover{
+
+transform:translateY(-10px);
+
+border-color:#7bd85a;
+
+box-shadow:0 0 25px rgba(123,216,90,.35);
+
+}
+
+.spec-card h3{
+
+margin-bottom:18px;
+
+color:#7bd85a;
+
+font-size:24px;
+
+}
+
+.spec-card span{
+
+font-size:18px;
+
+line-height:30px;
+
+color:#d8d8d8;
+
+display:block;
+
+}
+
+/*=========================
+GREEN GLOW
+=========================*/
+
+.hero-right::before{
+
+content:"";
+
+position:absolute;
+
+width:650px;
+
+height:650px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(circle,
+
+rgba(122,255,0,.75) 0%,
+
+rgba(122,255,0,.35) 30%,
+
+rgba(122,255,0,.12) 55%,
+
+transparent 75%);
+
+filter:blur(60px);
+
+animation:glowPulse 5s infinite;
+
+z-index:0;
+
+}
+
+/*=========================
+BOTTOM GLOW
+=========================*/
+
+.hero-right::after{
+
+content:"";
+
+position:absolute;
+
+bottom:60px;
+
+width:520px;
+
+height:70px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(circle,
+
+rgba(122,255,0,.95),
+
+transparent 70%);
+
+filter:blur(25px);
+
+z-index:0;
+
+}
+
+/*=========================
+PHONE ANIMATION
+=========================*/
+
+@keyframes phoneAnimation{
+
+0%{
+
+transform:
+translateY(0px)
+rotateY(-12deg);
+
+}
+
+25%{
+
+transform:
+translateY(-18px)
+rotateY(-5deg);
+
+}
+
+50%{
+
+transform:
+translateY(0px)
+rotateY(12deg);
+
+}
+
+75%{
+
+transform:
+translateY(-18px)
+rotateY(5deg);
+
+}
+
+100%{
+
+transform:
+translateY(0px)
+rotateY(-12deg);
+
+}
+
+}
+
+/*=========================
+GLOW
+=========================*/
+
+@keyframes glowPulse{
+
+0%{
+
+transform:scale(1);
+
+opacity:.75;
+
+}
+
+50%{
+
+transform:scale(1.12);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:scale(1);
+
+opacity:.75;
+
+}
+
+}
+
+.phone-container{
+
+position:relative;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:50px;
+
+border-radius:50px;
+
+background:transparent;
+
+overflow:hidden;
+
+}
