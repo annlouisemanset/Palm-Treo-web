@@ -1,84 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discussion | Palm Treo 650</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="animation.css">
+<title>Discussion | Palm Treo 650</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="animation.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
 <header>
-    <nav class="navbar">
-        <div class="logo">PALM <span>TREO 650</span></div>
 
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
-        </button>
+<nav class="navbar">
 
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="specs.html">Specifications</a></li>
-            <li><a href="comparison.html">Comparison</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="discussion.html" class="active">Discussion</a></li>
-            <li><a href="about.html">About</a></li>
-        </ul>
-    </nav>
+<div class="logo">
+PALM <span>TREO 650</span>
+</div>
+
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+<li><a href="features.html">Features</a></li>
+<li><a href="specs.html">Specifications</a></li>
+<li><a href="comparison.html">Comparison</a></li>
+<li><a href="discussion.html" class="active">Discussion</a></li>
+<li><a href="gallery.html">Gallery</a></li>
+<li><a href="about.html">About</a></li>
+
+</ul>
+
+</nav>
+
 </header>
 
 <div class="breadcrumb">
-    <a href="index.html">Home</a> / <span>Discussion</span>
+<a href="index.html">Home</a> /
+<span>Discussion</span>
 </div>
 
-<section class="page-hero">
-    <div class="eyebrow">Live Discussion</div>
-    <h1>Reflection <span>Questions</span></h1>
-    <p>
-        Two open questions from the lab activity. Answered live during the
-        presentation — click through them one at a time instead of
-        scrolling a written answer key.
-    </p>
-</section>
+<section class="comparison-section">
 
-<section class="discussion-section">
-    <div class="discussion-stage">
+<div class="section-title reveal">
 
-        <div class="discussion-progress" id="discProgress">
-            <span class="dot active" data-i="0"></span>
-            <span class="dot" data-i="1"></span>
-        </div>
+<h2>Discussion & Reflection</h2>
 
-        <div class="discussion-slide" id="discSlide">
-            <span class="discussion-eyebrow" id="discEyebrow">Question 1 of 2</span>
-            <p class="discussion-question" id="discQuestion">
-                Why did early PDAs (Personal Digital Assistants) eventually
-                disappear as a standalone device category? What modern
-                device replaced them?
-            </p>
-            <span class="discussion-hint">Answered live during the presentation.</span>
-        </div>
+<p>
+Read each question below. Click a question button to reveal the discussion panel during your presentation.
+</p>
 
-        <div class="discussion-nav">
-            <button class="btn outline" id="discPrev" disabled>← Previous</button>
-            <button class="btn green" id="discNext">Next →</button>
-        </div>
+</div>
 
-    </div>
+<div class="compare-tabs">
+
+<button class="compare-tab active" onclick="showQuestion(1)">
+Question 1
+</button>
+
+<button class="compare-tab" onclick="showQuestion(2)">
+Question 2
+</button>
+
+</div>
+
+<div id="question1" class="discussion-panel">
+
+<h2>Question 1</h2>
+
+<h3>
+Why did early PDAs (Personal Digital Assistants) eventually disappear as a standalone device category? What modern device replaced them?
+</h3>
+
+</div>
+
+<div id="question2" class="discussion-panel" style="display:none;">
+
+<h2>Question 2</h2>
+
+<h3>
+
+Identify two physical constraints that limit how small a mobile computing device can be while remaining usable.
+
+</h3>
+
+
+</div>
+
 </section>
 
 <footer>
-    <h3>Palm Treo 650 Interactive Website</h3>
-    <p>Created by BTVTED Computer Programming Students</p>
+
+<h3>Palm Treo 650 Interactive Website</h3>
+
+<p>Created by BTVTED Computer Programming Students</p>
+
 </footer>
 
-<script src="script.js"></script>
+<script>
+
+function showQuestion(number){
+
+document.getElementById("question1").style.display="none";
+document.getElementById("question2").style.display="none";
+
+document.getElementById("question"+number).style.display="block";
+
+const buttons=document.querySelectorAll(".compare-tab");
+
+buttons.forEach(btn=>btn.classList.remove("active"));
+
+buttons[number-1].classList.add("active");
+
+}
+
+</script>
 
 </body>
 </html>
