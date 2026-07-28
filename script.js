@@ -3,70 +3,51 @@
 // ===============================
 
 // Smooth fade-in animation (homepage cards + any .reveal element site-wide)
-const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
             entry.target.classList.add("show");
         }
     });
-},{ threshold:0.15 });
+}, { threshold: 0.15 });
 
-document.querySelectorAll(".card, .reveal, .bar-fill").forEach(el=>{
+document.querySelectorAll(".card, .reveal, .bar-fill").forEach(el => {
     observer.observe(el);
 });
 
-// Floating phone animation
-const phone = document.querySelector(".hero-right img");
+// ===============================
+// MOBILE NAV TOGGLE
+// ===============================
 
-if(phone){
+const navToggle = document.getElementById("navToggle");
+const navLinks = document.getElementById("navLinks");
 
-let rotate = 0;
+if (navToggle && navLinks) {
 
-let float = 0;
+    navToggle.addEventListener("click", () => {
+        navToggle.classList.toggle("open");
+        navLinks.classList.toggle("open");
+    });
 
-setInterval(()=>{
-
-    rotate += 0.5;
-
-    float += 0.05;
-
-    phone.style.transform = `
-        translateY(${Math.sin(float)*12}px)
-        rotateY(${Math.sin(float)*18}deg)
-        rotateX(${Math.cos(float)*3}deg)
-        scale(1.02)
-    `;
-
-},20);
-
+    navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            navToggle.classList.remove("open");
+            navLinks.classList.remove("open");
+        });
+    });
 }
 
-// Button ripple effect
-document.querySelectorAll(".btn").forEach(btn=>{
-
-btn.addEventListener("mouseenter",()=>{
-
-btn.style.transform="scale(1.05)";
-
+// Button ripple-style hover (desktop only, harmless on touch)
+document.querySelectorAll(".btn").forEach(btn => {
+    btn.addEventListener("mouseenter", () => { btn.style.transform = "scale(1.03)"; });
+    btn.addEventListener("mouseleave", () => { btn.style.transform = "scale(1)"; });
 });
 
-btn.addEventListener("mouseleave",()=>{
-
-btn.style.transform="scale(1)";
-
-});
-
-});
-
-// Current year in footer (optional)
+// Current year in footer
 const footer = document.querySelector("footer p");
 
-if(footer){
-
-footer.innerHTML =
-"Created by BTVTED Computer Programming Students © " +
-new Date().getFullYear();
-
+if (footer) {
+    footer.innerHTML = "Created by BTVTED Computer Programming Students © " + new Date().getFullYear();
 }
 
 // ===============================
@@ -75,7 +56,7 @@ new Date().getFullYear();
 
 const galleryItems = document.querySelectorAll(".gallery-item");
 
-if(galleryItems.length){
+if (galleryItems.length) {
 
     const overlay = document.querySelector(".lightbox-overlay");
     const lightboxIcon = document.querySelector(".lightbox-icon");
@@ -87,10 +68,8 @@ if(galleryItems.length){
 
     let currentIndex = 0;
 
-    function openLightbox(index){
-
+    function openLightbox(index) {
         currentIndex = index;
-
         const item = galleryItems[currentIndex];
 
         lightboxIcon.textContent = item.dataset.icon || "📱";
@@ -98,67 +77,44 @@ if(galleryItems.length){
         lightboxDesc.textContent = item.dataset.desc || "";
 
         overlay.classList.add("open");
-
     }
 
-    function closeLightbox(){
-
+    function closeLightbox() {
         overlay.classList.remove("open");
-
     }
 
-    galleryItems.forEach((item,index)=>{
-
-        item.addEventListener("click",()=>openLightbox(index));
-
+    galleryItems.forEach((item, index) => {
+        item.addEventListener("click", () => openLightbox(index));
     });
 
-    if(closeBtn) closeBtn.addEventListener("click",closeLightbox);
+    if (closeBtn) closeBtn.addEventListener("click", closeLightbox);
 
-    if(overlay){
-
-        overlay.addEventListener("click",(e)=>{
-
-            if(e.target === overlay) closeLightbox();
-
+    if (overlay) {
+        overlay.addEventListener("click", (e) => {
+            if (e.target === overlay) closeLightbox();
         });
-
     }
 
-    if(prevBtn){
-
-        prevBtn.addEventListener("click",()=>{
-
+    if (prevBtn) {
+        prevBtn.addEventListener("click", () => {
             currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-
             openLightbox(currentIndex);
-
         });
-
     }
 
-    if(nextBtn){
-
-        nextBtn.addEventListener("click",()=>{
-
+    if (nextBtn) {
+        nextBtn.addEventListener("click", () => {
             currentIndex = (currentIndex + 1) % galleryItems.length;
-
             openLightbox(currentIndex);
-
         });
-
     }
 
-    document.addEventListener("keydown",(e)=>{
-
-        if(!overlay.classList.contains("open")) return;
-
-        if(e.key === "Escape") closeLightbox();
-        if(e.key === "ArrowRight" && nextBtn) nextBtn.click();
-        if(e.key === "ArrowLeft" && prevBtn) prevBtn.click();
-
+    document.addEventListener("keydown", (e) => {
+        if (!overlay.classList.contains("open")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowRight" && nextBtn) nextBtn.click();
+        if (e.key === "ArrowLeft" && prevBtn) prevBtn.click();
     });
-
 }
 
 // ===============================
@@ -167,7 +123,7 @@ if(galleryItems.length){
 
 const osFlipCard = document.getElementById("osFlipCard");
 
-if(osFlipCard){
+if (osFlipCard) {
 
     const osAppTitle = document.getElementById("osAppTitle");
     const osAppBody = document.getElementById("osAppBody");
@@ -175,9 +131,9 @@ if(osFlipCard){
 
     const osApps = {
 
-        address:{
-            title:"Address",
-            body:`
+        address: {
+            title: "Address",
+            body: `
                 <div class="os-row"><div class="os-dot">MR</div><div><div class="os-row-main">Maria Reyes</div><div class="os-row-sub">Mobile · Work</div></div></div>
                 <div class="os-row"><div class="os-dot">JC</div><div><div class="os-row-main">Jon Cruz</div><div class="os-row-sub">Home</div></div></div>
                 <div class="os-row"><div class="os-dot">AL</div><div><div class="os-row-main">Ann Lopez</div><div class="os-row-sub">Mobile</div></div></div>
@@ -185,9 +141,9 @@ if(osFlipCard){
             `
         },
 
-        calc:{
-            title:"Calc",
-            body:`
+        calc: {
+            title: "Calc",
+            body: `
                 <div class="os-calc-display">128.5</div>
                 <div class="os-calc-grid">
                     <span>7</span><span>8</span><span>9</span><span>÷</span>
@@ -198,9 +154,9 @@ if(osFlipCard){
             `
         },
 
-        calendar:{
-            title:"Calendar",
-            body:`
+        calendar: {
+            title: "Calendar",
+            body: `
                 <div class="os-cal-grid">
                     <span class="os-cal-head">S</span><span class="os-cal-head">M</span><span class="os-cal-head">T</span><span class="os-cal-head">W</span><span class="os-cal-head">T</span><span class="os-cal-head">F</span><span class="os-cal-head">S</span>
                     <span></span><span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
@@ -212,9 +168,9 @@ if(osFlipCard){
             `
         },
 
-        contact:{
-            title:"Contact",
-            body:`
+        contact: {
+            title: "Contact",
+            body: `
                 <div style="text-align:center;padding:10px 0;">
                     <div class="os-dot" style="width:54px;height:54px;font-size:18px;margin:0 auto 12px;">MR</div>
                     <div class="os-row-main" style="font-size:14px;">Maria Reyes</div>
@@ -224,45 +180,45 @@ if(osFlipCard){
             `
         },
 
-        documents:{
-            title:"Documents",
-            body:`
+        documents: {
+            title: "Documents",
+            body: `
                 <div class="os-row"><div class="os-dot">📄</div><div><div class="os-row-main">Lab_2_Report.doc</div><div class="os-row-sub">18 KB</div></div></div>
                 <div class="os-row"><div class="os-dot">📊</div><div><div class="os-row-main">Budget.xls</div><div class="os-row-sub">42 KB</div></div></div>
                 <div class="os-row"><div class="os-dot">📑</div><div><div class="os-row-main">Notes.txt</div><div class="os-row-sub">4 KB</div></div></div>
             `
         },
 
-        email:{
-            title:"Email",
-            body:`
+        email: {
+            title: "Email",
+            body: `
                 <div class="os-row"><div class="os-dot">📥</div><div><div class="os-row-main">Prof. Santos</div><div class="os-row-sub">Re: Activity 2 submission</div></div></div>
                 <div class="os-row"><div class="os-dot">📥</div><div><div class="os-row-main">IT Dept.</div><div class="os-row-sub">Server maintenance notice</div></div></div>
                 <div class="os-row"><div class="os-dot">📥</div><div><div class="os-row-main">Jashmine A.</div><div class="os-row-sub">Updated spec sheet attached</div></div></div>
             `
         },
 
-        memos:{
-            title:"Memos",
-            body:`
+        memos: {
+            title: "Memos",
+            body: `
                 <div class="os-row"><div class="os-dot">📝</div><div><div class="os-row-main">Grocery list</div><div class="os-row-sub">3 items</div></div></div>
                 <div class="os-row"><div class="os-dot">📝</div><div><div class="os-row-main">Meeting notes</div><div class="os-row-sub">Oct 12</div></div></div>
                 <div class="os-row"><div class="os-dot">📝</div><div><div class="os-row-main">Wi-Fi password</div><div class="os-row-sub">Home</div></div></div>
             `
         },
 
-        messaging:{
-            title:"Messaging",
-            body:`
+        messaging: {
+            title: "Messaging",
+            body: `
                 <div class="os-bubble os-bubble-in">Did you finish the specs table?</div>
                 <div class="os-bubble os-bubble-out">Almost — sending it in 5.</div>
                 <div class="os-bubble os-bubble-in">Perfect, see you at the lab.</div>
             `
         },
 
-        phone:{
-            title:"Phone",
-            body:`
+        phone: {
+            title: "Phone",
+            body: `
                 <div class="os-dial-display">555 0142</div>
                 <div class="os-dial-grid">
                     <span>1</span><span>2</span><span>3</span>
@@ -273,18 +229,18 @@ if(osFlipCard){
             `
         },
 
-        tasks:{
-            title:"Tasks",
-            body:`
+        tasks: {
+            title: "Tasks",
+            body: `
                 <div class="os-row"><div class="os-dot">✔</div><div><div class="os-row-main">Finish Activity 2</div><div class="os-row-sub">High priority</div></div></div>
                 <div class="os-row"><div class="os-dot">○</div><div><div class="os-row-main">Charge the Treo</div><div class="os-row-sub">Low priority</div></div></div>
                 <div class="os-row"><div class="os-dot">○</div><div><div class="os-row-main">Back up contacts</div><div class="os-row-sub">Medium priority</div></div></div>
             `
         },
 
-        web:{
-            title:"Web",
-            body:`
+        web: {
+            title: "Web",
+            body: `
                 <div class="os-url-bar">http://www.palm.com</div>
                 <div class="os-web-block" style="width:70%;"></div>
                 <div class="os-web-block" style="width:95%;"></div>
@@ -294,9 +250,9 @@ if(osFlipCard){
             `
         },
 
-        hotsync:{
-            title:"HotSync",
-            body:`
+        hotsync: {
+            title: "HotSync",
+            body: `
                 <p style="font-size:11px;color:#3a463c;">Syncing with desktop…</p>
                 <div class="os-sync-bar-track"><div class="os-sync-bar-fill"></div></div>
                 <p style="font-size:10.5px;color:#5a655c;">Contacts, Calendar and Memos up to date.</p>
@@ -305,33 +261,79 @@ if(osFlipCard){
 
     };
 
-    document.querySelectorAll(".os-app-btn").forEach(btn=>{
-
-        btn.addEventListener("click",()=>{
-
+    document.querySelectorAll(".os-app-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
             const app = osApps[btn.dataset.app];
-
-            if(!app) return;
+            if (!app) return;
 
             osAppTitle.textContent = app.title;
             osAppBody.innerHTML = app.body;
 
             osFlipCard.classList.add("flipped");
-
         });
-
     });
 
-    if(osBackBtn){
-
-        osBackBtn.addEventListener("click",()=>{
-
+    if (osBackBtn) {
+        osBackBtn.addEventListener("click", () => {
             osFlipCard.classList.remove("flipped");
-
         });
+    }
+}
 
+// ===============================
+// DISCUSSION PAGE — question-only slide navigator (only runs on discussion.html)
+// ===============================
+
+const discSlide = document.getElementById("discSlide");
+
+if (discSlide) {
+
+    const discussionQuestions = [
+        "Why did early PDAs (Personal Digital Assistants) eventually disappear as a standalone device category? What modern device replaced them?",
+        "Identify two physical constraints (for example: battery size, screen size, cooling) that limit how small a mobile computing device can be while remaining usable."
+    ];
+
+    const discEyebrow = document.getElementById("discEyebrow");
+    const discQuestion = document.getElementById("discQuestion");
+    const discPrev = document.getElementById("discPrev");
+    const discNext = document.getElementById("discNext");
+    const discDots = document.querySelectorAll("#discProgress .dot");
+
+    let discIndex = 0;
+
+    function renderDiscussion() {
+
+        discEyebrow.textContent = `Question ${discIndex + 1} of ${discussionQuestions.length}`;
+        discQuestion.textContent = discussionQuestions[discIndex];
+
+        discDots.forEach((dot, i) => dot.classList.toggle("active", i === discIndex));
+
+        discPrev.disabled = discIndex === 0;
+        discNext.disabled = discIndex === discussionQuestions.length - 1;
+
+        discSlide.classList.remove("slide-fade");
+        void discSlide.offsetWidth;
+        discSlide.classList.add("slide-fade");
     }
 
+    if (discPrev) {
+        discPrev.addEventListener("click", () => {
+            if (discIndex > 0) { discIndex--; renderDiscussion(); }
+        });
+    }
+
+    if (discNext) {
+        discNext.addEventListener("click", () => {
+            if (discIndex < discussionQuestions.length - 1) { discIndex++; renderDiscussion(); }
+        });
+    }
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight" && discNext) discNext.click();
+        if (e.key === "ArrowLeft" && discPrev) discPrev.click();
+    });
+
+    renderDiscussion();
 }
 
 console.log("Palm Treo 650 Website Loaded Successfully");
